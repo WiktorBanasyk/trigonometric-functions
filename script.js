@@ -7,7 +7,14 @@ const height = canvas.height;
 const centerX = width / 2;
 const centerY = height / 2;
 
-const step = 40;
+//const step = 40;
+let step = 40;
+
+let lastX = null;
+let lastY = null;
+let lastR = null;
+
+
 
 function drawGrid() {
     ctx.fillStyle = 'black';
@@ -59,6 +66,11 @@ function drawGrid() {
 
     ctx.strokeStyle = 'white';
     ctx.lineWidth = 2;
+
+    if (lastX !== null && lastY !== null) {
+        drawPoint(lastX, lastY);
+        drawAngle(lastX, lastY);
+    }
 }
 
 function drawPoint(x, y) {
@@ -96,6 +108,13 @@ tg = ${tg !== '∞' ? tg.toFixed(3) : tg}
 ctg = ${ctg !== '∞' ? ctg.toFixed(3) : ctg}
 `;
 
+    lastX = x;
+    lastY = y;
+    lastR = r;
+
+    drawPoint(x, y);
+    drawAngle(x, y);
+}
 
 function drawAngle(x, y) {
     const scale = step;
@@ -119,8 +138,19 @@ function drawAngle(x, y) {
     ctx.stroke();
 }
 
-    drawPoint(x, y);
-    drawAngle(x, y);
+
+
+
+
+function zoomIn() {
+    step += 5;
+    if (step > 100) step = 100;
+    drawGrid();
+}
+function zoomOut() {
+    step -= 5;
+    if (step < 10) step = 10;
+    drawGrid();
 }
 
 drawGrid();

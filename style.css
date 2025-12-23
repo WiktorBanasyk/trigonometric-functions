@@ -5,6 +5,7 @@ body {
 
 * {
     color: white;
+    font-family: 'Apple Chancery', cursive;
 }
 
 .container {
@@ -56,3 +57,16 @@ body {
     border: 1px solid #555
 }
     */
+
+.zoom-controls {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.zoom-controls {
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
