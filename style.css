@@ -1,11 +1,13 @@
 body {
     background-color: black;
+    font-family: 'Apple Chancery', cursive;
+    line-height: 1.5;
     margin: 0;
 }
 
 * {
     color: white;
-    font-family: 'Apple Chancery', cursive;
+    box-sizing: border-box;
 }
 
 .container {
@@ -13,60 +15,94 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 2rem 1rem;
 }
 
 .topbar {
     display: flex;
     text-align: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
 }
 
 .menu {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 2rem;
     padding: 0;
     margin-top: 10px;
-    justify-content: center;
 }
 
 .menu li {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.4rem;
+    transition: transform 0.2s ease;
+}
+
+.menu li:hover {
+    transform: scale(1.1);
 }
 
 .menu li a {
     text-decoration: none;
+    color: inherit;
 }
 
 .graph {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    /*
-    background: #222;
-    border-radius: 12px;
-    padding: 20px;
-    */
 }
-/*
+
 #graphCanvas {
-    background-color: #000;
-    border: 1px solid #555
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #555;
+    border-radius: 8px;
 }
-    */
+
+#result {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    text-align: center;
+}
 
 .zoom-controls {
-    margin-top: 10px;
+    margin-top: 1rem;
     display: flex;
-    gap: 10px;
+    gap: 1rem;
     justify-content: center;
 }
 
-.zoom-controls {
-    font-size: 20px;
-    padding: 5px 10px;
+
+
+.zoom-controls button{
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.zoom-controls button:hover {
+    background-color: #444;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        gap: 1rem;
+    }
+    .menu li {
+        font-size: 1.1rem;
+    }
+    #result {
+        font-size: 1rem;
+    }
+    .zoom-controls button {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
